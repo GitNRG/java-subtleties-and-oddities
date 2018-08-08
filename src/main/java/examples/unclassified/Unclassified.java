@@ -3,6 +3,7 @@ package examples.unclassified;
 import helpers.Description;
 import helpers.Difficulty;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -51,6 +52,20 @@ public class Unclassified {
         l = 0xFFFF_FFFF_0000_0000L;
         System.out.println( l == l.hashCode()); // false
         System.out.println( -1 ==l.hashCode()); // true
+    }
+
+
+    /**
+     * Arrays doesn't have overridden hashcode, so they should never be used as Map keys.
+     */
+    @Description(topics = {EQUALS_AND_HASHCODE, ARRAYS}, difficulty = MEDIUM)
+    public static void incorrectHashcode() {
+        Map<int[], String> map = new HashMap<>();
+        int[] key = new int[]{1};
+        map.put(key, "February");
+
+        System.out.println(map.get(key));           // February
+        System.out.println(map.get(new int[]{1}));  // null
     }
 
     public static void main(String... args) {
