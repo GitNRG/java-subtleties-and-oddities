@@ -68,6 +68,27 @@ public class Unclassified {
         System.out.println(map.get(new int[]{1}));  // null
     }
 
+    /**
+     * Sometimes in code you can see that key presence in map is done using get() method and null check
+     * but that's not fully correct because null value is valid, so it may lead to incorrect processing
+     */
+    @Description(topics = {COLLECTIONS}, difficulty = EASY)
+    public static void mapContainsAndGetMethod() {
+        Map<String, String> m = new HashMap<>();
+        m.put("a", "1");
+        m.put("b", null);
+        System.out.println(m.containsKey("a")); // true
+        System.out.println(m.containsKey("b")); // true
+        System.out.println(m.get("a"));         // 1
+        System.out.println(m.get("b"));         // null
+        if (m.containsKey("b")) {
+            // will enter only if "b" is present even if value is null
+        }
+        if (m.get("b") != null) {
+            // will NOT enter, although such entry exists
+        }
+    }
+
     public static void main(String... args) {
     }
 }

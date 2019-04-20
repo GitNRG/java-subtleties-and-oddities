@@ -73,6 +73,7 @@ public class Operators {
     @Description(topics = {PRIMITIVES, WEIRD_SYNTAX}, difficulty = HARD)
     public static void justDealWithIt() {
         boolean willBeTrue = Integer.MIN_VALUE == -Integer.MIN_VALUE;
+        boolean willBeTrueAsWell = Integer.MIN_VALUE == Math.abs(Integer.MIN_VALUE);
     }
 
 

@@ -25,5 +25,6 @@ public enum Topic {
     EXCEPTION_HANDLING,
     NULL,
     BUILTINS,
-    WEIRD_SYNTAX
+    WEIRD_SYNTAX,
+    COLLECTIONS
 }
